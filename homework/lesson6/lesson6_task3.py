@@ -13,3 +13,5 @@ for element in list_i:
     list_j.append(element ** 2)
 final_list = list(zip(list_i, list_j))
 print(final_list)
+
+# List comprehension!!

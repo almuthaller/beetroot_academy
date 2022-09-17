@@ -14,6 +14,6 @@ prices = {
     "pear": 3
 }
 total_stock_price = 0
-for key in stock and prices:
+for key in stock:
     total_stock_price += stock[key] * prices[key]
 print(total_stock_price)
