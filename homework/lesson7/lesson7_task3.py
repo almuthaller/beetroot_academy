@@ -9,17 +9,21 @@
 #    the call make_operation('-', 5, 5, -10, -20) should return 30
 #    the call make_operation('*', 7, 6) should return 42  
 
-def make_operation(operator, numbers):
+import operator
+
+
+def make_operation(op, numbers):
     
+    ops = {
+        "+": operator.add,
+        "-": operator.sub,
+        "*": operator.mul
+    }
+
     result = numbers[0]
 
     for element in numbers[1:]:
-        if operator == "+":
-            result += element
-        elif operator == "-":
-            result -= element
-        elif operator == "*":
-            result *= element
+        result = ops[op](result, element)
     
     return result
         
