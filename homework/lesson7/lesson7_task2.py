@@ -10,4 +10,5 @@ def make_country(country, capital):
 
 my_country = input("Some country name ")
 my_capital = input("And the country's capital ")
+
 make_country(my_country, my_capital)

@@ -7,13 +7,17 @@ stock = {
     "orange": 32,
     "pear": 15
 }
+
 prices = {
     "banana": 4,
     "apple": 2,
     "orange": 1.5,
     "pear": 3
 }
+
 total_stock_price = 0
+
 for key in stock:
     total_stock_price += stock[key] * prices[key]
+
 print(total_stock_price)

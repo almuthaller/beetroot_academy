@@ -10,8 +10,11 @@
 # Tips: Use random module to get random char from string)
 
 import random 
+
+
 given_string = input("Type something fun ")
 list_of_char = list(given_string)
+
 for i in range(5):
     random.shuffle(list_of_char)
     shuffled_string = ''.join(list_of_char)

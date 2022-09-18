@@ -1,5 +1,6 @@
 a = 5
 b = 7
+
 print(a + b)    #Addition
 print(a - b)    #Substraction
 print(a / b)    #Division
