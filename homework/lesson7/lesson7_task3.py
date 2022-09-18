@@ -11,25 +11,23 @@
 
 def make_operation(operator, numbers):
     
-    if operator == "+":
-        return sum(numbers)
+    result = numbers[0]
 
-    if operator == "-":
-        result = numbers[0]
-        for element in numbers[1:]:
+    for element in numbers[1:]:
+        if operator == "+":
+            result += element
+        elif operator == "-":
             result -= element
-        return result
-
-    if operator == "*":
-        result = numbers[0]
-        for element in numbers[1:]:
+        elif operator == "*":
             result *= element
-        return result
-
+    
+    return result
+        
+        
 # Some test cases:
-assert make_operation("+", [2, 3, 4]) == 9
-assert make_operation("-", [2, 3, 4]) == -5
-assert make_operation("*", [2, 3, 4]) == 24
+assert make_operation("+", [7, 7, 2]) == 16
+assert make_operation("-", [5, 5, -10, -20]) == 30
+assert make_operation("*", [7, 6]) == 42
 
 
 user_input = input("Numbers: ")
