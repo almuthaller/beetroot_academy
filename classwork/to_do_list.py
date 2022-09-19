@@ -11,8 +11,8 @@ to_do_list = list(set(item.strip() for item in to_do_list))
 user_input = input("Check an item from your list: ")
 
 while True:
-    done_in_input = "- done" in user_input
-    add_in_input = "- add" in user_input
+    done_in_input = user_input.endswith("- done")
+    add_in_input = user_input.endswith("- add")
 
     if done_in_input:
         clear_user_input = user_input.replace(" - done", "")
@@ -22,6 +22,9 @@ while True:
         clear_user_input = user_input.replace(" - add", "")
         to_do_list.append(clear_user_input)
         to_do_list = list(set(to_do_list))
+
+    else:
+        print("Sorry, I don't know what to do with this input")
     
     if len(to_do_list) < 1:
         break
