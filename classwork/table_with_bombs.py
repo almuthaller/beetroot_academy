@@ -7,12 +7,10 @@
 import random
 
 
-bombs_placement = []
+bombs_placement = set()
 
 while len(bombs_placement) < 18:
-    new_coordinates = random.randint(1, 8), random.randint(1, 8)
-    if not new_coordinates in bombs_placement:
-        bombs_placement.append(new_coordinates)
+    bombs_placement.add((random.randint(1, 8), random.randint(1, 8)))
 
 
 user_input = input("Guess coordinates: ").split(", ")
