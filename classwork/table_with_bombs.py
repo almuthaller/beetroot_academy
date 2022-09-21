@@ -9,19 +9,17 @@ import random
 
 bombs_placement = []
 
-for i in range(18):
-    x = random.randint(1, 8)
-    y = random.randint(1, 8)
-    new_coordinates = x, y
+while len(bombs_placement) < 18:
+    new_coordinates = random.randint(1, 8), random.randint(1, 8)
     if not new_coordinates in bombs_placement:
         bombs_placement.append(new_coordinates)
 
 
 user_input = input("Guess coordinates: ").split(", ")
 
-if user_input in bombs_placement:
-    user_input2 = input("Hit! Guess new coordinates: ")
-    if user_input2 in bombs_placement:
+if not user_input in bombs_placement:
+    user_input2 = input("Good! Guess new coordinates: ")
+    if not user_input2 in bombs_placement:
         print("You win!")
 
 else: 
