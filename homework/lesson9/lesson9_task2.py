@@ -29,6 +29,7 @@ phonebook = []
 
 list_of_prompts = "add - add a new entry\nsearch - search by name, phone number or city/state\ndelete - delete a record\nupdate - update a record\nexit - exit the program"
 
+
 def take_new_user_input():
     return input(f"Type a prompt. Here is a list of prompts and what they'll do:\n{list_of_prompts}\n")
     
@@ -67,7 +68,7 @@ while True:
         phonebook.append(new_person)
         print("This contact was added:", new_person)
 
-        take_new_user_input()
+        user_prompt = take_new_user_input()
 
 
     elif user_prompt == "search":
@@ -99,29 +100,29 @@ while True:
         else:
             print("I'm sorry, I don't understand what you want from me.")
 
-        take_new_user_input()
+        user_prompt = take_new_user_input()
 
     elif user_prompt == "delete":
         phonenumber_to_search_for = search_for()
 
         for person in phonebook:
-            if person[2] == phonenumber_to_search_for:
+            if person["Phone number"] == phonenumber_to_search_for:
                 print("This contact was deleted:", person)
                 phonebook.remove(person)
 
-        take_new_user_input()
+        user_prompt = take_new_user_input()
 
 
     elif user_prompt == "update":
         phonenumber_to_search_for = search_for()
 
         for person in phonebook:
-            if person[2] == phonenumber_to_search_for:
-                person[2] = input("Please type the updated phone number: ")
+            if person["Phone number"] == phonenumber_to_search_for:
+                person["Phone number"] = input("Please type the updated phone number: ")
             
             print("This contact is now updated:", person)
 
-        take_new_user_input()
+        user_prompt = take_new_user_input()
 
 
     elif user_prompt == "exit":
