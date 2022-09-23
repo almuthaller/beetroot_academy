@@ -8,7 +8,7 @@
 from re import fullmatch, findall
 
 
-valid_format = "\+[0-9]{1,3}\s\d{3}\s\d{3}\s\d{3}"
+valid_format = "\+[0-9]{1,3}\s\d{3}\s\d{3}\s\d{3}"      # Use https://regex101.com/ 
 
 if fullmatch(valid_format, input("Phone number: ")):
     print("Valid phone number")
