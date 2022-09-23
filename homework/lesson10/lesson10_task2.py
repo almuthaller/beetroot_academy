@@ -13,6 +13,7 @@ class Dog:
         human_equivalent = self.dog_age * self.age_factor
         return human_equivalent
 
+
 dog1 = Dog(12)
 dog1s_human_age = dog1.human_age()
 
