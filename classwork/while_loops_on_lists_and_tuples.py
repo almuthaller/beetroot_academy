@@ -1,9 +1,11 @@
-# Play with lists/tuples using while loops
+"""
+Play with lists/tuples using while loops
 
-# Find maximum from list of ints
-# Compute the average of tuple items
-# Reverse list using while loop
-# Copy items from one list to another
+Find maximum from list of ints
+Compute the average of tuple items
+Reverse list using while loop
+Copy items from one list to another
+"""
 
 my_list = [1, 6, 2, 3]
 my_tuple = 2, 7, 4, 3, 3

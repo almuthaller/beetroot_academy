@@ -1,5 +1,7 @@
-# Create a function which takes as input two dicts with structure mentioned above, 
-# then computes and returns the total price of stock.
+"""
+Create a function which takes as input two dicts with structure mentioned above, 
+then computes and returns the total price of stock.
+"""
 
 stock = {
     "banana": 6,

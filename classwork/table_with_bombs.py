@@ -1,8 +1,10 @@
-# We have a character and table 8 * 8. Randomly place on table some bombs. 
-# User must input coordinates where character will go. 
-# If user input a place with bomb - print "you loose". 
-# If user will print twice in a row place without bomb - print "you win". 
-# The total amount of bombs must be 18.
+"""
+We have a character and table 8 * 8. Randomly place on table some bombs. 
+User must input coordinates where character will go. 
+If user input a place with bomb - print "you loose". 
+If user will print twice in a row place without bomb - print "you win". 
+The total amount of bombs must be 18.
+"""
 
 import random
 

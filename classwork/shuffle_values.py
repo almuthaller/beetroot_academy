@@ -1,5 +1,7 @@
-# Create list which will have 1000000 sorted numbers. After it, create a copy of this list and shuffle
-# the values. After it, filter all odd elements, and measure, how much time it'll take for sorted and unsorted list.
+"""
+Create list which will have 1000000 sorted numbers. After it, create a copy of this list and shuffle
+the values. After it, filter all odd elements, and measure, how much time it'll take for sorted and unsorted list.
+"""
 
 from random import shuffle
 

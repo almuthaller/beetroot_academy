@@ -1,9 +1,11 @@
-# Small todo list
+"""
+Small todo list
 
-# User inputs a list of todo’s items like this “make an appointment, ask my friend how is his health, go on walk”. 
-# After it - program must wait for a next input from user. Like “go on walk - done”. 
-# Once it’ll be inputed - program must print what’s left to do for today. 
-# Once items will be finished - it must finish execution and print “good job!”
+User inputs a list of todo's items like this “make an appointment, ask my friend how is his health, go on walk”. 
+After it - program must wait for a next input from user. Like “go on walk - done”. 
+Once it'll be inputed - program must print what's left to do for today. 
+Once items will be finished - it must finish execution and print “good job!”
+"""
 
 to_do_list = input("To do list: ").split(",")    
 to_do_list = list(set(item.strip() for item in to_do_list))

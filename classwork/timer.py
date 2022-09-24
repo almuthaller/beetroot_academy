@@ -1,4 +1,6 @@
-# Create simple timer, for 1 minute. Once 1 minute will past - print It's time!
+"""
+Create simple timer, for 1 minute. Once 1 minute will past - print It's time!
+"""
 
 from datetime import datetime, timedelta
 
