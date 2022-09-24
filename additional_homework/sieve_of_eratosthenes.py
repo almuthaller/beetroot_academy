@@ -11,7 +11,7 @@ def sieve_of_eratosthenes(limit):
     for i in range(2, limit + 1):
         if i not in multiples:
             prime_numbers.append(i)
-            multiples.extend([x * i for x in range(int(limit / i))])
+            multiples.extend([x * i for x in range(limit // i + 1)])
         
     return prime_numbers
 
