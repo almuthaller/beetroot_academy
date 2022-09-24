@@ -5,13 +5,7 @@ Expected Output: [['a', 'd', 'g', 'j', 'm'], ['b', 'e', 'h', 'k', 'n'], ['c', 'f
 """
 
 def split_list(given_list, n):
-    final_lists = []
-
-    for i in range(n):
-        add_list = given_list[i::n]
-        final_lists.append(add_list)
-
-    return final_lists
+    return [given_list[i::n] for i in range(n)]
 
 
 print(split_list([1, 2, 3, 4, 5, 6, 7, 8], 3))

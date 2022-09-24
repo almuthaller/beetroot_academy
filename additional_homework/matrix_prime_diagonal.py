@@ -13,16 +13,9 @@ matrix = []
 matrix_size = input("How many rows does your matrix have? ")
 
 for i in range(int(matrix_size)):
-    matrix.append(input(f"Matrix row {i}: ").split(" "))
+    strings = input(f"Matrix row {i}: ").split(" ")
+    matrix.append([int(x) for x in strings])
 
-primary_diagonal = []
-index = 0
-
-while index < len(matrix):
-    primary_diagonal.append(matrix[index][index])
-    index += 1
-
-
-sum = sum([int(x) for x in primary_diagonal])
+sum = sum([matrix[index][index] for index in range(len(matrix))])
 
 print(sum)

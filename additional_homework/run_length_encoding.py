@@ -17,7 +17,7 @@ original_string = "automatically"
 
 rle_list = []
 count = 1
-compare = ()
+compare = None
 
 for element in original_list:       # Swap out original_list with original_string and the code will work the same.
     if compare == element:
