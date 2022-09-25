@@ -3,11 +3,10 @@ You have a first list like values = [“one”, “two”, “three”, “four�
 You need to remove elements from first list which have an indexes from a second.
 """
 
-values = ["one", "two", "three", "four", "five"]
-indexes = [1, 3, 5]
+values = ["one", "two", "three", "four", "five", "six"]
+indexes = [5, 1, 3]
 
 indexes = list(set(indexes))
-indexes.sort()
 
 for item in reversed(indexes):
     values.pop(item)
