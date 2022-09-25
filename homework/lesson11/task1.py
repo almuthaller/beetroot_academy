@@ -15,10 +15,10 @@ class Person:
         self.hometown = hometown
         self.number_of_pets = number_of_pets
     
-    def talk(self, string):
-        if self.number_of_pets == 0:
-            self.number_of_pets = "no"
-        print(f"Hi, my name is {self.name}, I am {self.age} years old,", string, f"and I have {self.number_of_pets} pets.")
+    def talk(self, string = ""):
+        pets_str = self.number_of_pets if self.number_of_pets != 0 else "no"
+        string_to_print = string + " " if string else ""
+        print(f"Hi, my name is {self.name}, I am {self.age} years old, {string_to_print}and I have {pets_str} pets.")
 
 
 class Student(Person):
@@ -54,7 +54,9 @@ anna = Student("Anna", 9, "Stockholm", 0, 4, "215")
 elsa = Student("Elsa", 10, "Täby", 3, 4, "215")
 olaf = Student("Olaf", 13, "Helsinborg", 1, 7, "102")
 tim = Teacher("Tim", 43, "Täby", 0, "biology", False)
+almut = Person("Almut", 21, "Berlin", 3)
 
 print(are_classmates(anna, elsa, olaf))
 tim.talk()
 elsa.talk()
+almut.talk()
