@@ -17,9 +17,14 @@ prices = {
     "pear": 3
 }
 
-total_stock_price = 0
 
-for key in stock:
-    total_stock_price += stock[key] * prices[key]
+def total_price(dict1, dict2):
+    total_stock_price = 0
 
-print(total_stock_price)
+    for key in dict1:
+        total_stock_price += dict1[key] * dict2[key]
+
+    return total_stock_price
+
+
+print(total_price(stock, prices))
