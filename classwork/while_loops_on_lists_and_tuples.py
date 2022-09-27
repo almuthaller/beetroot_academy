@@ -43,7 +43,7 @@ while index >= 0:
 
 copied_list = []
 
-for i in range(len(my_list)):
-    copied_list.append(my_list[i])
+for i in my_list:
+    copied_list.append(i)
 
 #print(copied_list)
