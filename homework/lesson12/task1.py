@@ -9,18 +9,18 @@ Also, create a simple generic function, which takes as input instance of a Cat o
 """
 
 class Animal:
-    def talk(self, sounds):
-        print(sounds)
+    def talk(self):
+        print("existencial crisis, I don't know what sounds I make")
 
 
 class Dog(Animal):
     def talk(self):
-        Animal.talk(self, "woof woof")
+        print("woof woof")
 
 
 class Cat(Animal):
     def talk(self):
-        Animal.talk(self, "meoww")
+        print("meoww")
 
 
 def generic_talk(instance):
