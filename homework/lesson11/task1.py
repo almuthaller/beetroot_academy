@@ -23,7 +23,7 @@ class Person:
 
 class Student(Person):
     def __init__(self, name, age, hometown, number_of_pets, year, classroom):
-        Person.__init__(self, name, age, hometown, number_of_pets)
+        super().__init__(name, age, hometown, number_of_pets)
         self.year = year
         self.classroom = classroom
 
@@ -37,7 +37,7 @@ class Student(Person):
 
 class Teacher(Person):
     def __init__(self, name, age, hometown, number_of_pets, teaching_subject, has_children):
-        Person.__init__(self, name, age, hometown, number_of_pets)
+        super().__init__(name, age, hometown, number_of_pets)
         self.teaching_subject = teaching_subject
         self.has_children = has_children
     
