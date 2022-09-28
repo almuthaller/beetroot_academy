@@ -13,7 +13,7 @@ class CustomException(Exception):
 class CustomException(Exception):
 	def __init__(self, msg):
 		super().__init__(msg)
-		self.file = open("logs.txt", "a")
+		self.file = open("homework/lesson11/logs.txt", "a")
 		self.file.write(msg)
 		self.file.close()
 
