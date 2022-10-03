@@ -7,7 +7,8 @@ def func1():
 
 
 def func2():
-    return func1()
+    return func1
 
 
 access_func1 = func2()
+access_func1()
