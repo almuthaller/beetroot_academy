@@ -77,7 +77,6 @@ class ProductStore:
             self.infos[product.name].amount += amount
         except KeyError:
             self.infos[product.name] = ProductInfo(product, amount, 30)
-        # - adds a specified quantity of a single product with a predefined price premium for your store(30 percent)
 
     def set_discount(self, identifier, percent, identifier_type = "name"):
         if identifier_type == "name":
@@ -88,8 +87,6 @@ class ProductStore:
                     p.discount = percent
         else:
             raise ValueError("Identifier type must be 'name' or 'type'.")
-        # - adds a discount for all products specified by input identifiers (type or name). 
-        # The discount must be specified in percentage
     
     def sell_product(self, product_name, amount):
         try:
@@ -102,20 +99,15 @@ class ProductStore:
         
         info.amount -= amount
         self.income += info.product.price * amount * (info.discount / 100)
-        # - removes a particular amount of products from the store if available, in other case raises an error. 
-        # It also increments income if the sell_product method succeeds.
 
     def get_income(self):
         return self.income
-        # - returns amount of many earned by ProductStore instance.
 
     def get_all_products(self):
         return list(self.infos.values())   
-        # - returns information about all available products in the store.
 
     def get_product_info(self, product_name):
         return (product_name, self.infos[product_name].amount)
-        # - returns a tuple with product name and amount of items in the store.
 
 
 p = Product("Sport", "Football T-Shirt", 100)

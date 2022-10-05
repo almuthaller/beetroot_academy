@@ -29,15 +29,13 @@ def arg_rules(expected_type, max_length, contains):         # Never call your cu
     def args_wrapper(func):
         def func_wrapper(*args):
             for argument in args:
-                if type(argument) != expected_type:
-                    print(f"Expected type: {expected_type}, got: {type(argument)}")
-                    return False
-                if len(argument) > max_length:
-                    print(f"Maximum length should be {max_length}, but we got {len(argument)}.")
-                    return False
-                if not all(symbol in argument for symbol in contains):
-                    print(f"Should contain: {contains}")
-                    return False
+                try:
+                    for argument in args:
+                        assert type(argument) == expected_type, f"Expected type is {expected_type}, but we got: {type(argument)}"
+                        assert len(argument) <= max_length, f"Maximum length should be {max_length}, but we got {len(argument)}."
+                        assert all(symbol in argument for symbol in contains), f"Should contain: {contains}"
+                except AssertionError as error:
+                    print(str(error))
             return func(*args)
         return func_wrapper
     return args_wrapper
