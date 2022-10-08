@@ -1,0 +1,4 @@
+sum: 5
+power: 8
+sum: 5
+power: 8
