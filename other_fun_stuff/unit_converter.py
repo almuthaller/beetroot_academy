@@ -24,9 +24,9 @@ def convert(value, unit):
 
 
 assert convert(13, "°C") == "= 55.4°F"
-assert convert(23, "°F") == "= -5.0°C"
+assert convert(23.00, "°F") == "= -5.0°C"
 
-assert convert(40, "cm") == "= 15.75”"
+assert convert(40.00000, "cm") == "= 15.75”"
 assert convert(5, "”") == "= 12.7cm"
 
 
@@ -35,7 +35,6 @@ while True:
     if user_input == "stop":
         break
 
-    user_value = float("".join([c for c in user_input if c.isdigit() or c == "."]))
-    user_unit = "".join([c for c in user_input if not c.isdigit() and c != " "])
+    [user_value, user_unit] = user_input.split(" ")
 
-    print(convert(user_value, user_unit), "\n")
+    print(convert(float(user_value), user_unit), "\n")
