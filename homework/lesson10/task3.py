@@ -46,17 +46,14 @@ class TVController:
     def first_channel(self):
         self.running_now = 0
         return self.current_channel()
-        # turns on the first channel from the list.
         
     def last_channel(self):
         self.running_now = len(self.list_of_channels) - 1
         return self.current_channel()
-        # turns on the last channel from the list.
     
     def turn_channel(self, N):
         self.running_now = N - 1
         return self.current_channel()
-        # turns on the N channel. Pay attention that the channel numbers start from 1, not from 0.
 
     def next_channel(self):
         if self.running_now == len(self.list_of_channels) - 1:
@@ -64,7 +61,6 @@ class TVController:
         else:
             self.running_now += 1
         return self.current_channel()
-        # turns on the next channel. If the current channel is the last one, turns on the first channel.
 
     def previous_channel(self):
         if self.running_now == 0:
@@ -72,30 +68,20 @@ class TVController:
         else:
             self.running_now -= 1
         return self.current_channel()
-        # turns on the previous channel. If the current channel is the first one, turns on the last channel.
         
     def current_channel(self):
         return self.list_of_channels[self.running_now]
-        # returns the name of the current channel.
 
     def is_exist(self, number_or_name):
         if type(number_or_name) == int:
-            if 0 < number_or_name and number_or_name < len(self.list_of_channels):
-                return "Yes"
-            else:
-                return "No"
+            return "Yes" if 0 < number_or_name and number_or_name < len(self.list_of_channels) else "No"
 
         elif type(number_or_name) == str:
-            if number_or_name in self.list_of_channels:
-                return "Yes"
-            else:
-                return "No"
+            return "Yes" if number_or_name in self.list_of_channels else "No"
 
         else:
             raise ValueError
-        # gets 1 argument - the number N or the string 'name' 
-        # and returns "Yes", if the channel N or 'name' exists in the list, or "No" - in the other case.
- 
+
 
 controller = TVController(CHANNELS) 
 
