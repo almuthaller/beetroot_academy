@@ -36,6 +36,7 @@ class Author:
     pass
 """
 
+
 class Library:
     def __init__(self, name):
         self.name = name
@@ -88,7 +89,7 @@ class Author:
 
     def __str__(self):
         return f"Name: {self.name}"
-    
+
 
 buecherei = Library("buecherei")
 author_haller = Author("Haller", "Germany", "2000")

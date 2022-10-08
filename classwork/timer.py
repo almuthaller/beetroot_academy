@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 
 
 current_time = datetime.now()
-end_time = current_time + timedelta(minutes = 1)
+end_time = current_time + timedelta(minutes=1)
 
 while end_time > datetime.now():
     pass
@@ -14,7 +14,7 @@ while end_time > datetime.now():
 print("It's time!")
 
 
-# Advanced - every 10 seconds print a message. 
+# Advanced - every 10 seconds print a message.
 
 expected_datetime = datetime.now() + timedelta(seconds=10)
 

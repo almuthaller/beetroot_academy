@@ -20,10 +20,11 @@ assert m.remove_positives([26, -11, -8, 13, -90]) == [-11, -8, -90]
 assert m.filter_leaps([2001, 1884, 1995, 2003, 2020]) == [1884, 2020]
 """
 
+
 class Mathematician:
     def square_nums(self, ints):
-        return [i ** 2 for i in ints]
-    
+        return [i**2 for i in ints]
+
     def remove_positives(self, ints):
         return [i for i in ints if i <= 0]
 

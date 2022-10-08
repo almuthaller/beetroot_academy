@@ -4,6 +4,7 @@ Then write another function that calls oops inside a try/except state­ment to c
 What happens if you change oops to raise KeyError instead of IndexError?
 """
 
+
 def oops():
     raise IndexError
 
@@ -15,4 +16,4 @@ def catch_error():
         print("Caught the error!")
 
 
-catch_error() 
+catch_error()

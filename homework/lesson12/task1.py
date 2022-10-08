@@ -8,6 +8,7 @@ For instance, Dog's can be to print "woof woof", while Cat's can be to print "me
 Also, create a simple generic function, which takes as input instance of a Cat or Dog classes and performs talk method on input parameter.
 """
 
+
 class Animal:
     def talk(self):
         print("existencial crisis, I don't know what sounds I make")

@@ -23,7 +23,7 @@ import sys
 
 phonebook_name = sys.argv[1]
 
-json_file = open("phonebook.json")          # This file contains "[]" to begin with
+json_file = open("phonebook.json")  # This file contains "[]" to begin with
 json.load(json_file)
 json_file.close()
 
@@ -33,8 +33,10 @@ list_of_prompts = "add - add a new entry\nsearch - search by name, phone number 
 
 
 def take_new_user_input():
-    return input(f"Type a prompt. Here is a list of prompts and what they'll do:\n{list_of_prompts}\n")
-    
+    return input(
+        f"Type a prompt. Here is a list of prompts and what they'll do:\n{list_of_prompts}\n"
+    )
+
 
 def search_for():
     return input("Type the information you want to search for: ")
@@ -46,7 +48,7 @@ def search_by_key(key, value_to_search_for):
     for person in phonebook:
         if person[key] == value_to_search_for:
             found_contacts.append(person)
-    
+
     return found_contacts
 
 
@@ -56,29 +58,31 @@ def print_results(found_contacts):
 
     else:
         print(f"Here's what I found: {found_contacts}")
-    
 
 
 user_prompt = take_new_user_input()
 
 while True:
     if user_prompt == "add":
-        new_person = {"First name": input("First name: "),
-                    "Last name": input("Last name: "),
-                    "Phone number": input("Phone number: "),
-                    "City/State": input("City/State: ")}
+        new_person = {
+            "First name": input("First name: "),
+            "Last name": input("Last name: "),
+            "Phone number": input("Phone number: "),
+            "City/State": input("City/State: "),
+        }
         phonebook.append(new_person)
         print("This contact was added:", new_person)
 
         user_prompt = take_new_user_input()
 
-
     elif user_prompt == "search":
-        search_by = input("You can search by first name, last name, full name, phone number or city/state. Which one would you like?\n")
+        search_by = input(
+            "You can search by first name, last name, full name, phone number or city/state. Which one would you like?\n"
+        )
         if search_by == "first name":
             firstname_to_search_for = search_for()
             print_results(search_by_key("First name", firstname_to_search_for))
-        
+
         elif search_by == "last name":
             lastname_to_search_for = search_for()
             print_results(search_by_key("Last name", lastname_to_search_for))
@@ -114,22 +118,19 @@ while True:
 
         user_prompt = take_new_user_input()
 
-
     elif user_prompt == "update":
         phonenumber_to_search_for = search_for()
 
         for person in phonebook:
             if person["Phone number"] == phonenumber_to_search_for:
                 person["Phone number"] = input("Please type the updated phone number: ")
-            
+
             print("This contact is now updated:", person)
 
         user_prompt = take_new_user_input()
 
-
     elif user_prompt == "exit":
         break
-
 
     else:
         print("Plese try one of the prompts listed here:")

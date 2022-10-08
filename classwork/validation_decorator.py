@@ -4,6 +4,7 @@ Advanced: add a parameter to decorator “searching_str”, this string must be 
 or you should raise an error.
 """
 
+
 def validation(searching_str):
     def arg_wrapper(func):
         def func_wrapper(*args):
@@ -11,7 +12,9 @@ def validation(searching_str):
                 raise ValueError("One of your parameters is not a string.")
             assert searching_str in args, "Your given string is not an argument."
             return func(*args)
+
         return func_wrapper
+
     return arg_wrapper
 
 

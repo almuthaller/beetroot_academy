@@ -23,10 +23,12 @@ def square_all(*args):
     return [arg ** 2 for arg in args]
 """
 
+
 def logger(func):
     def wrapper(*args):
         print(f"{func.__name__} called with {args}")
         return func(*args)
+
     return wrapper
 
 
@@ -37,7 +39,7 @@ def add(x, y):
 
 @logger
 def square_all(*args):
-    return [arg ** 2 for arg in args]
+    return [arg**2 for arg in args]
 
 
 addition = add(4, 5)

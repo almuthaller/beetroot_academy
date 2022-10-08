@@ -11,5 +11,5 @@ input_name = input("Type a name here ")
 
 if input_name.lower() == my_name:
     print("Yup, that's the same name.")
-else: 
+else:
     print("Nah, this seems to be a different name.")

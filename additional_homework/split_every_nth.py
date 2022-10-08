@@ -4,6 +4,7 @@ Sample list: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', '
 Expected Output: [['a', 'd', 'g', 'j', 'm'], ['b', 'e', 'h', 'k', 'n'], ['c', 'f', 'i', 'l']]
 """
 
+
 def split_list(given_list, n):
     return [given_list[i::n] for i in range(n)]
 

@@ -6,6 +6,7 @@ Make another method called talk() which makes prints a greeting from the person 
 "Hello, my name is Carl Johnson and I’m 26 years old"
 """
 
+
 class Person:
     def __init__(self, firstname, lastname, age):
         self.firstname = firstname
@@ -13,7 +14,9 @@ class Person:
         self.age = age
 
     def talk(self):
-        print(f"Hello, my name is {self.firstname} {self.lastname} and I'm {self.age} years old.")
+        print(
+            f"Hello, my name is {self.firstname} {self.lastname} and I'm {self.age} years old."
+        )
 
 
 person1 = Person("Almut", "Haller", "21")

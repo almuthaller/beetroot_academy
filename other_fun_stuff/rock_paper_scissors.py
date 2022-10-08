@@ -13,7 +13,7 @@ computer_wins = 0
 while my_wins < 5 and computer_wins < 5:
     my_hand = input("Your choice: ")
     computers_hand = random.choice(hand)
-    
+
     if my_hand not in hand:
         print("That is not a valid choice. Choose from 'rock', 'paper' or 'scissors'.")
         continue

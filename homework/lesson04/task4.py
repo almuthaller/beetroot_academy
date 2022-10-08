@@ -5,7 +5,7 @@ Write a program that asks the answer for a mathematical expression, checks wheth
 and then responds with a message accordingly.
 """
 
-right_answer = (357 / 7)
+right_answer = 357 / 7
 user_answer = int(input("What is 357 divided by 7? "))
 
 if user_answer == right_answer:

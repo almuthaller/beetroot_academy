@@ -8,7 +8,7 @@ The result should be sent back to the user via a print statement.
 import random
 
 
-random_number = random.randint(1,10)                                # I assume we're doing whole numbers??
+random_number = random.randint(1, 10)  # I assume we're doing whole numbers??
 guessed_number = int(input("Guess a whole number between 1 and 10 "))
 
 if guessed_number == random_number:

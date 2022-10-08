@@ -22,9 +22,9 @@ def find_zip_code(file_name, part_of_code):
 
         if type(part_of_code) == str:
             return [zip_code for zip_code in zip_codes if part_of_code in zip_code]
-       
+
         elif type(part_of_code) == list:
             return set(zip_codes).intersection(set(part_of_code))
-    
+
 
 print(find_zip_code("classwork/zip_codes.json", "36"))

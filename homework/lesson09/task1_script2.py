@@ -12,5 +12,5 @@ Note: file write methods do not add newline characters to your strings;
 add an explicit "\n" at the end of the string if you want to fully terminate the line in the file.
 """
 
-open_file = open("homework/lesson9/myfile.txt", "r")     
-print(open_file.read())                                  
+open_file = open("homework/lesson9/myfile.txt", "r")
+print(open_file.read())

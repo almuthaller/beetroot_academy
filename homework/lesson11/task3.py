@@ -71,14 +71,14 @@ class ProductStore:
     def __init__(self):
         self.infos = {}
         self.income = 0
-    
+
     def add(self, product, amount):
         try:
             self.infos[product.name].amount += amount
         except KeyError:
             self.infos[product.name] = ProductInfo(product, amount, 30)
 
-    def set_discount(self, identifier, percent, identifier_type = "name"):
+    def set_discount(self, identifier, percent, identifier_type="name"):
         if identifier_type == "name":
             self.infos[identifier].discount = percent
         elif identifier_type == "type":
@@ -87,7 +87,7 @@ class ProductStore:
                     p.discount = percent
         else:
             raise ValueError("Identifier type must be 'name' or 'type'.")
-    
+
     def sell_product(self, product_name, amount):
         try:
             info = self.infos[product_name]
@@ -96,7 +96,7 @@ class ProductStore:
 
         if info.amount < amount:
             raise AvailabilityError("There are not enough products of this type.")
-        
+
         info.amount -= amount
         self.income += info.product.price * amount * (info.discount / 100)
 
@@ -104,7 +104,7 @@ class ProductStore:
         return self.income
 
     def get_all_products(self):
-        return list(self.infos.values())   
+        return list(self.infos.values())
 
     def get_product_info(self, product_name):
         return (product_name, self.infos[product_name].amount)

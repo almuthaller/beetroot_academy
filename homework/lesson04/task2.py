@@ -6,6 +6,6 @@ Write a program that takes your name as input, and then your age as input and gr
 """
 
 your_name = input("Hi! What's your name? ")
-your_age = int(input("May I ask how old you are? "))  
+your_age = int(input("May I ask how old you are? "))
 
 print(f"Hello {your_name}, on your next birthday you'll be {your_age + 1} years old.")

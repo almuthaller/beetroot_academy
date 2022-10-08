@@ -17,13 +17,11 @@ maximum = max(my_list)
 # print(maximum)
 
 
-
 # Task 2
 
 average = sum(my_tuple) / len(my_tuple)
 
 # print(average)
-
 
 
 # Task 3
@@ -35,8 +33,7 @@ while index >= 0:
     reversed_list.append(my_list[index])
     index -= 1
 
-#print(reversed_list)
-
+# print(reversed_list)
 
 
 # Task 4
@@ -46,4 +43,4 @@ copied_list = []
 for i in my_list:
     copied_list.append(i)
 
-#print(copied_list)
+# print(copied_list)

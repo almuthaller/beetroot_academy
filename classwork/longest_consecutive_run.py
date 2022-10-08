@@ -10,6 +10,7 @@ Then create another function which takes on input result of function from the pr
 and prints Informative message about the longest consecutive run, something like - “Longest run is 6 of integers - 4”
 """
 
+
 def longest_run(*args):
     current_item = args[0]
     current_run = 1
@@ -27,7 +28,7 @@ def longest_run(*args):
         else:
             current_item = item
             current_run = 1
-    
+
     return (longest_run, longest_item)
 
 

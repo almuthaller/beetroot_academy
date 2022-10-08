@@ -15,21 +15,17 @@ import operator
 
 
 def make_operation(op, numbers):
-    
-    ops = {
-        "+": operator.add,
-        "-": operator.sub,
-        "*": operator.mul
-    }
+
+    ops = {"+": operator.add, "-": operator.sub, "*": operator.mul}
 
     result = numbers[0]
 
     for element in numbers[1:]:
         result = ops[op](result, element)
-    
+
     return result
-        
-        
+
+
 # Some test cases:
 assert make_operation("+", [7, 7, 2]) == 16
 assert make_operation("-", [5, 5, -10, -20]) == 30

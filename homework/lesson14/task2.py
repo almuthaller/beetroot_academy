@@ -13,14 +13,17 @@ def create_slogan(name: str) -> str:
 assert create_slogan("Steve") == "Steve drinks * in his brand new *!"
 """
 
-def stop_words(words):                      # Decorator with arguments --> make two nested decorators
+
+def stop_words(words):  # Decorator with arguments --> make two nested decorators
     def args_wrapper(func):
         def func_wrapper(*args):
             returned_str = func(*args)
             for word in words:
                 returned_str = returned_str.replace(word, "*")
             return returned_str
+
         return func_wrapper
+
     return args_wrapper
 
 
@@ -35,4 +38,7 @@ def concatenate(*strings):
 
 
 assert create_slogan("Steve") == "Steve drinks * in his brand new *!"
-assert concatenate("Almut", "Papa is always blue", "Grossschaf") == "Almut Papa is always * Grossschaf"
+assert (
+    concatenate("Almut", "Papa is always blue", "Grossschaf")
+    == "Almut Papa is always * Grossschaf"
+)

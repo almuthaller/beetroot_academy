@@ -12,7 +12,7 @@ import random
 random_list = []
 
 while len(random_list) < 10:
-    random_list.append(random.randint(1,100))        # Random numbers between what range??
+    random_list.append(random.randint(1, 100))  # Random numbers between what range??
 
 highest_number = max(random_list)
 

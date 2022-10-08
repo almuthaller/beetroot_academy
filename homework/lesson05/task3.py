@@ -16,7 +16,7 @@ while len(integer_list) < 100:
 
 new_list = []
 
-for number in integer_list:                     #Use only while loop... does that apply here?
+for number in integer_list:  # Use only while loop... does that apply here?
     if number % 7 == 0 and number % 5 != 0:
         new_list.append(number)
 

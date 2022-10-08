@@ -19,13 +19,17 @@ rle_list = []
 count = 1
 compare = None
 
-for element in original_list:       # Swap out original_list with original_string and the code will work the same.
+for (
+    element
+) in (
+    original_list
+):  # Swap out original_list with original_string and the code will work the same.
     if compare == element:
         rle_list.pop()
         count += 1
     else:
         count = 1
-    
+
     rle_list.append([count, element])
     compare = element
 

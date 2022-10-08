@@ -10,15 +10,16 @@ class CustomException(Exception):
 		...
 """
 
+
 class CustomException(Exception):
-	def __init__(self, msg):
-		super().__init__(msg)
-		self.file = open("homework/lesson11/logs.txt", "a")
-		self.file.write(msg)
-		self.file.close()
+    def __init__(self, msg):
+        super().__init__(msg)
+        self.file = open("homework/lesson11/logs.txt", "a")
+        self.file.write(msg)
+        self.file.close()
 
 
 try:
-	raise CustomException("error message hi")
+    raise CustomException("error message hi")
 except CustomException as ce:
-	print(ce)
+    print(ce)

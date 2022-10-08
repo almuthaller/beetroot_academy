@@ -7,6 +7,7 @@ go through it in for in loop, put every item from list to "try_to_return_a_numbe
 and print a number or a message depends on exception on each loop step.
 """
 
+
 class OddError(Exception):
     pass
 

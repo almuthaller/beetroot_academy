@@ -3,7 +3,9 @@ Make a program that has some sentence (a string) on input and returns a dict con
 and the number of occurrences as values. 
 """
 
-sentence = input("Type a sentence without punctuation :) ")     # How would we solve it if there was punctuation in the input?
+sentence = input(
+    "Type a sentence without punctuation :) "
+)  # How would we solve it if there was punctuation in the input?
 keys = sentence.lower().split()
 
 # values = []
@@ -22,7 +24,7 @@ our_dictionary = {}
 for element in keys:
     if element in our_dictionary:
         our_dictionary[element] += 1
-    else: 
+    else:
         our_dictionary[element] = 1
 
 print(our_dictionary)

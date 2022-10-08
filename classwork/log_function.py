@@ -17,7 +17,9 @@ def log_to_file(results_file_name, timestamps_file_name):
             with open(timestamps_file_name, "a") as timestamps_file:
                 timestamps_file.write(f"{func.__name__}: {datetime.now()}\n")
             return result
+
         return wrap_func
+
     return log_decorator
 
 
@@ -28,7 +30,7 @@ def sum(a, b):
 
 @log_to_file("classwork/results.txt", "classwork/timestamps.txt")
 def power(a, b):
-    return a ** b
+    return a**b
 
 
 print(sum(2, 3))

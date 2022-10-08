@@ -3,6 +3,7 @@ Let's play with recursion. Make a function with argument index: int - call itsel
 Create an if statement, before recursion call, like index < 10, to no get recursion exception.
 """
 
+
 def recursion(my_index):
     if my_index >= 10:
         return 1

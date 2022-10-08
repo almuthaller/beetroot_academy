@@ -20,42 +20,40 @@ class Fraction:
     def __init__(self, numerator, denominator):
         if denominator == 0:
             raise ZeroDivisionError("The denominator cannot be 0.")
-        
+
         self.num = numerator
         self.denom = denominator
-
 
     def __repr__(self):
         return f"{self.num}/{self.denom}"
 
-    
     def __eq__(self, other):
         return self.num == other.num and self.denom == other.denom
-
 
     def __ne__(self, other):
         return not (self == other)
 
-
     def cancel_fraction(self, f):
         greatest_common_divisor = math.gcd(f.num, f.denom)
-        return Fraction(int(f.num / greatest_common_divisor), int(f.denom / greatest_common_divisor))
-    
+        return Fraction(
+            int(f.num / greatest_common_divisor), int(f.denom / greatest_common_divisor)
+        )
 
     def __add__(self, other):
-        new_fraction = Fraction(self.num * other.denom + other.num * self.denom, self.denom * other.denom)
+        new_fraction = Fraction(
+            self.num * other.denom + other.num * self.denom, self.denom * other.denom
+        )
         return self.cancel_fraction(new_fraction)
-    
 
     def __sub__(self, other):
-        new_fraction = Fraction(self.num * other.denom - other.num * self.denom, self.denom * other.denom)
+        new_fraction = Fraction(
+            self.num * other.denom - other.num * self.denom, self.denom * other.denom
+        )
         return self.cancel_fraction(new_fraction)
-
 
     def __mul__(self, other):
         new_fraction = Fraction(self.num * other.num, self.denom * other.denom)
         return self.cancel_fraction(new_fraction)
-
 
     def __truediv__(self, other):
         new_fraction = Fraction(self.num * other.denom, self.denom * other.num)

@@ -4,6 +4,7 @@ Output this packages as list
 Output: ["idna"]
 """
 
+
 def version_bigger_than(v):
     with open("classwork/requirements.txt") as file:
         results = []

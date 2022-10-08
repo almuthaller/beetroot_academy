@@ -5,6 +5,6 @@ Use a list comprehension to make a list containing tuples (i, j)
 where i goes from 1 to 10 and j is corresponding to i squared.
 """
 
-cool_list = [(x, x ** 2) for x in range(1, 11)]
+cool_list = [(x, x**2) for x in range(1, 11)]
 
 print(cool_list)

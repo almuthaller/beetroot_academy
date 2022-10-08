@@ -24,6 +24,7 @@ assert choose_func(nums1, square_nums, remove_negatives) == [1, 4, 9, 16, 25]
 assert choose_func(nums2, square_nums, remove_negatives) == [1, 3, 5]
 """
 
+
 def choose_func(nums, func1, func2):
     if all(x > 0 for x in nums):
         return func1(nums)
@@ -32,7 +33,7 @@ def choose_func(nums, func1, func2):
 
 
 def square_nums(nums):
-    return [num ** 2 for num in nums]
+    return [num**2 for num in nums]
 
 
 def remove_negatives(nums):
