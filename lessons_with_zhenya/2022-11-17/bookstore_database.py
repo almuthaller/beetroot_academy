@@ -30,6 +30,7 @@ class Item:
         self.item_type = item_type
         self.price = price
         self.quantity = quantity
+        # We might also want to have an attribute with an id number to more easily identify items.
 
     def add_to_table(self, connection):
         with connection:
@@ -68,7 +69,10 @@ class Item:
 
 if __name__ == "__main__":
     postcard1 = Item("Happy Birthday card", "postcard", 1, 1)
-    postcard2 = Item("Happy Birthday card", "postcard", 1, 4)  # One problem is...
+    postcard2 = Item("Happy Birthday card", "postcard", 1, 4)
+    # One problem is that this code allows you to have two instances for the "same" item with DIFFERENT prices.
+    # That doesn't make sense and might be a reason to restructure the database. For now, I left it like this.
+
     notebook1 = Item("green notebook", "notebook", 6, 3)
 
     connection = sqlite3.connect("lessons_with_zhenya/2022-11-17/bookstore.db")
