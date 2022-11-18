@@ -13,6 +13,13 @@ import sqlite3
 
 
 class Item:
+    def __init__(self, name, item_type, price, quantity):
+        self.name = name
+        self.item_type = item_type
+        self.price = price
+        self.quantity = quantity
+        # We might also want to have an attribute with an id number to more easily identify items.
+
     @classmethod
     def create_table(cls, connection):
         with connection:
@@ -24,13 +31,6 @@ class Item:
                 quantity integer
                 )"""
             )
-
-    def __init__(self, name, item_type, price, quantity):
-        self.name = name
-        self.item_type = item_type
-        self.price = price
-        self.quantity = quantity
-        # We might also want to have an attribute with an id number to more easily identify items.
 
     def add_to_table(self, connection):
         with connection:
@@ -66,6 +66,9 @@ class Item:
                     },
                 )
 
+    def delete_all(self, connection):
+        connection.cursor().execute("DELETE FROM items")
+
 
 if __name__ == "__main__":
     postcard1 = Item("Happy Birthday card", "postcard", 1, 1)
@@ -80,7 +83,7 @@ if __name__ == "__main__":
 
     Item.create_table(connection)
 
-    cursor.execute("DELETE FROM items")
+    postcard1.delete_all(connection)
 
     postcard1.add_to_table(connection)
     postcard2.add_to_table(connection)
