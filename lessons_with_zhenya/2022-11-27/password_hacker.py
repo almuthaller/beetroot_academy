@@ -28,9 +28,9 @@ def password_generator(length):
 def measure_execution_time(func):
     def wrap_function(*args):
         start_time = time()
-        func(*args)
+        return_value = func(*args)
         print("Execution time: ", time() - start_time)
-        return func(*args)
+        return return_value
 
     return wrap_function
 
