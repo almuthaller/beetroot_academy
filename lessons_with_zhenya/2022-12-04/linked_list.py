@@ -42,3 +42,9 @@ class LinkedList:
             self.head.prev = node
             node.next = self.head
             self.head = node
+
+    def search_item(self, value):
+        for element in self:
+            if element.value == value:
+                return True
+            return False
