@@ -1,10 +1,12 @@
 class Node:
     def __init__(self, value, next_node=None):
+        if type(value) != int:
+            raise TypeError
         self.value = value
         self.next = next_node
 
     def __str__(self):
-        return self.value
+        return str(self.value)
 
 
 class OrderedLinkedList:
@@ -37,21 +39,48 @@ class OrderedLinkedList:
                 if current.next is None:
                     current.next = node
                     break
-                elif value < current.next.value:
+                if value < current.next.value:
                     node.next = current.next
                     current.next = node
                     break
-                elif value > current.next.value:
+                if value > current.next.value:
                     previous = current
                     current = current.next
                 else:
                     break
             else:
                 previous.next = node
-                node.next = None
 
-    def binary_search(self):
-        pass
+    def find_middle_impl(self, first, last):
+        if first is None:
+            return None
+        slow = first
+        fast = first.next
+        while fast != last:
+            fast = fast.next
+            if fast != last:
+                slow = slow.next
+                fast = fast.next
+        return slow
+
+    def binary_search(self, value):
+        if type(value) != int:
+            raise TypeError
+        first = self.head
+        last = None
+        while True:
+            middle = self.find_middle_impl(first, last)
+            if middle is None:
+                return False
+            if middle.value == value:
+                return True
+            if middle.value < value:
+                first = middle.next
+            else:
+                last = middle
+            if last == first:
+                break
+        return False
 
 
 our_list = OrderedLinkedList()
@@ -60,4 +89,5 @@ our_list.add_node(4)
 our_list.add_node(2)
 our_list.add_node(2)
 for i in our_list:
-    print(i.value)
+    print(i)
+print(our_list.binary_search(3))
