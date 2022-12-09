@@ -86,5 +86,3 @@ assert tree.search_node(7)
 
 assert not tree.search_node(4)
 assert not tree.search_node(15)
-
-print(dir(Tree))
