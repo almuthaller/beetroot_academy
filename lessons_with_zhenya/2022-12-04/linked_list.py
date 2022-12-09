@@ -47,4 +47,4 @@ class LinkedList:
         for element in self:
             if element.value == value:
                 return True
-            return False
+        return False

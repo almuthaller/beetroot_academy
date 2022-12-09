@@ -47,7 +47,6 @@ class Item:
             matches = cursor.fetchall()
 
             if len(matches) == 0:
-                # create new instance
                 cursor.execute(
                     f"""INSERT INTO items(name, type, price, quantity) VALUES (:name, :item_type, :price, :quantity)""",
                     {
@@ -67,7 +66,6 @@ class Item:
                 return cls(object_id, name, item_type, price, quantity)
 
             elif len(matches) == 1:
-                # update quantity
                 cursor.execute(
                     """UPDATE items 
                     SET quantity = :quantity 
@@ -83,47 +81,34 @@ class Item:
                         item.quantity += quantity
                         return item
 
-                return cls(object_id, name, item_type, price, quantity)
+                return cls(matches[0][0], name, item_type, price, quantity)
 
             else:
                 raise sqlite3.DataError(
                     f"You have a duplicate of name {name}, type {item_type} in your database."
                 )
 
+    def sell(self, connection, sold_quantity):
+        self.quantity -= sold_quantity
+        with connection:
+            cursor = connection.cursor()
+            cursor.execute("""UPDATE items SET quantity """)
+
     def delete_all(self, connection):
         connection.cursor().execute("DELETE FROM items")
 
 
 if __name__ == "__main__":
-    """postcard1 = Item("Happy Birthday card", "postcard", 1, 1)
-    postcard2 = Item("Happy Birthday card", "postcard", 1, 4)
-    # One problem is that this code allows you to have two instances for the "same" item with DIFFERENT prices.
-    # That doesn't make sense and might be a reason to restructure the database. For now, I left it like this.
-
-    notebook1 = Item("green notebook", "notebook", 6, 3)
-
-    postcard1.delete_all(connection)
-
-    postcard1.add_to_table(connection)
-    postcard2.add_to_table(connection)
-    notebook1.add_to_table(connection)
-    """
-
     connection = sqlite3.connect("lessons_with_zhenya/2022-11-17/bookstore.db")
     cursor = connection.cursor()
-
     Item.create_table(connection)
-
-    cursor.execute("SELECT id FROM items")
-    print(cursor.fetchall())
-
-    # cursor.execute("DROP TABLE items")
 
     new_test_object = Item.create_or_update(
         connection, "Test name 1", "Test type", 10, 2
     )
     print(new_test_object)
-    # cursor.execute(
-    #    "SELECT * FROM items WHERE name = 'Test name' and type = 'Test type'"
-    # )
-    # print(cursor.fetchall())
+
+    cursor.execute(
+        "SELECT * FROM items WHERE name = 'Test name 1' and type = 'Test type'"
+    )
+    print(cursor.fetchall())
