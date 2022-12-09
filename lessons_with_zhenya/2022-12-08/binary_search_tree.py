@@ -61,14 +61,6 @@ class Tree:
 
         return False
 
-    def print_all(self):
-        all_nodes = []
-
-        if self.root is None:
-            return all_nodes
-
-        all_nodes.append(self.root)
-
 
 tree = Tree()
 
@@ -94,3 +86,5 @@ assert tree.search_node(7)
 
 assert not tree.search_node(4)
 assert not tree.search_node(15)
+
+print(dir(Tree))
