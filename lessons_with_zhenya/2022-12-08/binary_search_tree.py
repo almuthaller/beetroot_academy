@@ -61,6 +61,36 @@ class Tree:
 
         return False
 
+    def get_tree(self, root, tree=[]):
+        if root is not None:
+            self.get_tree(root.left_child, tree)
+            tree.append(root.value)
+            self.get_tree(root.right_child, tree)
+
+        return tree
+
+        # This method is not really usuable on its own unless root = self.root because argument root needs to be an instance of Node.
+        # We do not store instances anywhere else because we create them directly in the add_node method of the class Tree.
+
+    def print_all(self):
+        print(self.get_tree(self.root))
+
+    def find_min(self, root=None):
+        if root is None:
+            root = self.root
+
+        if root.left_child is None:
+            return root
+        return self.find_min(root.left_child)
+
+    def find_max(self, root=None):
+        if root is None:
+            root = self.root
+
+        if root.right_child is None:
+            return root
+        return self.find_max(root.right_child)
+
 
 tree = Tree()
 
@@ -86,3 +116,8 @@ assert tree.search_node(7)
 
 assert not tree.search_node(4)
 assert not tree.search_node(15)
+
+tree.print_all()
+
+assert tree.find_min(), 1
+assert tree.find_max(), 14
