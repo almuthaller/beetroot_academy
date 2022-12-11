@@ -25,25 +25,23 @@ class Tree:
         self.root = None
 
     def __insert_node(self, root, value):
-        if root is not None:
+        if value < root.value:
+            if root.left_child is None:
+                root.left_child = Node(value)
+            else:
+                self.__insert_node(root.left_child, value)
 
-            if value < root.value:
-                if root.left_child is None:
-                    root.left_child = Node(value)
-                else:
-                    self.__insert_node(root.left_child, value)
-
-            elif value > root.value:
-                if root.right_child is None:
-                    root.right_child = Node(value)
-                else:
-                    self.__insert_node(root.right_child, value)
-
-        else:
-            self.root = Node(value)
+        elif value > root.value:
+            if root.right_child is None:
+                root.right_child = Node(value)
+            else:
+                self.__insert_node(root.right_child, value)
 
     def add_node(self, value):
-        self.__insert_node(self.root, value)
+        if self.root is None:
+            self.root = Node(value)
+        else:
+            self.__insert_node(self.root, value)
 
     def search_node(self, value):
         if type(value) != int or value < 0:
@@ -61,35 +59,52 @@ class Tree:
 
         return False
 
-    def get_tree(self, root, tree=[]):
+    def __walk(self, func, root):
         if root is not None:
-            self.get_tree(root.left_child, tree)
-            tree.append(root.value)
-            self.get_tree(root.right_child, tree)
+            self.__walk(func, root.left_child)
+            func(root.value)
+            self.__walk(func, root.right_child)
 
-        return tree
+    def walk(self, func):
+        self.__walk(func, self.root)
 
-        # This method is not really usuable on its own unless root = self.root because argument root needs to be an instance of Node.
-        # We do not store instances anywhere else because we create them directly in the add_node method of the class Tree.
+    def to_list(self):
+        result = []
+        self.walk(result.append)
+        return result
 
     def print_all(self):
-        print(self.get_tree(self.root))
+        is_first = True
 
-    def find_min(self, root=None):
-        if root is None:
-            root = self.root
+        def one_line_print(value):
+            nonlocal is_first
+            if not is_first:
+                print(", ", end="")
+            print(value, end="")
+            is_first = False
 
-        if root.left_child is None:
-            return root
-        return self.find_min(root.left_child)
+        self.walk(one_line_print)
+        print()
 
-    def find_max(self, root=None):
-        if root is None:
-            root = self.root
+    def find_min(self):
+        if self.root is None:
+            return None
 
-        if root.right_child is None:
-            return root
-        return self.find_max(root.right_child)
+        root = self.root
+        while root.left_child is not None:
+            root = root.left_child
+
+        return root.value
+
+    def find_max(self):
+        if self.root is None:
+            return None
+
+        root = self.root
+        while root.right_child is not None:
+            root = root.right_child
+
+        return root.value
 
 
 tree = Tree()
@@ -117,7 +132,9 @@ assert tree.search_node(7)
 assert not tree.search_node(4)
 assert not tree.search_node(15)
 
+assert tree.to_list() == [1, 3, 5, 7, 14]
+
 tree.print_all()
 
-assert tree.find_min(), 1
-assert tree.find_max(), 14
+assert tree.find_min() == 1
+assert tree.find_max() == 14
