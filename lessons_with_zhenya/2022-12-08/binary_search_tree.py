@@ -59,6 +59,26 @@ class Tree:
 
         return False
 
+    def find_min(self):
+        if self.root is None:
+            return None
+
+        root = self.root
+        while root.left_child is not None:
+            root = root.left_child
+
+        return root.value
+
+    def find_max(self):
+        if self.root is None:
+            return None
+
+        root = self.root
+        while root.right_child is not None:
+            root = root.right_child
+
+        return root.value
+
     def __walk(self, func, root):
         if root is not None:
             self.__walk(func, root.left_child)
@@ -85,26 +105,6 @@ class Tree:
 
         self.walk(one_line_print)
         print()
-
-    def find_min(self):
-        if self.root is None:
-            return None
-
-        root = self.root
-        while root.left_child is not None:
-            root = root.left_child
-
-        return root.value
-
-    def find_max(self):
-        if self.root is None:
-            return None
-
-        root = self.root
-        while root.right_child is not None:
-            root = root.right_child
-
-        return root.value
 
 
 tree = Tree()
