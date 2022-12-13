@@ -48,7 +48,6 @@ class Tree:
             raise TypeError
 
         current = self.root
-
         while current is not None:
             if value > current.value:
                 current = current.right_child
@@ -58,6 +57,15 @@ class Tree:
                 return True
 
         return False
+
+    def __size(self, root=None):
+        if root is None:
+            return 0
+        else:
+            return self.__size(root.left_child) + 1 + self.__size(root.right_child)
+
+    def size(self):
+        return self.__size(self.root)
 
     def find_min(self):
         if self.root is None:
@@ -110,10 +118,12 @@ class Tree:
 tree = Tree()
 
 assert tree.root is None
+assert tree.size() == 0
 
 tree.add_node(5)
 
 assert tree.root.value == 5
+assert tree.size() == 1
 
 tree.add_node(14)
 tree.add_node(3)
@@ -122,6 +132,7 @@ tree.add_node(7)
 tree.add_node(5)
 
 assert tree.root.value == 5
+assert tree.size() == 5
 
 assert tree.search_node(5)
 assert tree.search_node(14)
@@ -133,6 +144,7 @@ assert not tree.search_node(4)
 assert not tree.search_node(15)
 
 assert tree.to_list() == [1, 3, 5, 7, 14]
+assert tree.size() == len(tree.to_list())
 
 tree.print_all()
 
