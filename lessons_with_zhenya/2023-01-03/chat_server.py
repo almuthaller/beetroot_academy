@@ -25,6 +25,10 @@ class ChatServer:
         while True:
             # Waiting until this user sends a message
             data = await reader.read(140)
+            # If a client terminates without sending quit, data will be empty. We break the loop here as we do after the quit command
+            if len(data) == 0:
+                break
+            # Decoding data into a string
             message = data.decode()
 
             print(f"Received {message} from {addr}")
@@ -49,7 +53,7 @@ class ChatServer:
         # Client gets removed from container so they won't receive messages any longer
         self.writers.remove(writer)
 
-        print("Close the connection")
+        print(f"Closing connection to {addr}")
         # Closing connection from the server end, too
         writer.close()
 
