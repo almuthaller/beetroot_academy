@@ -1,1 +1,1 @@
-This is my repository for everything related to my python course at Beetroot Academy. Here you can find my homework, classwork and other practice.
+This is my repository for everything related to my Python course at Beetroot Academy. Here you can find my homework, classwork and other practice.
